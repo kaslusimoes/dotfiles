@@ -1,0 +1,9 @@
+# example config file on /usr/share/doc/cower/config
+
+Color = always
+TargetDir = $HOME/Programming/Pacman/Tarballs
+#IgnoreOOD
+#ConnectTimeout =
+#MaxThreads =
+
+# vim: set noet syn=conf

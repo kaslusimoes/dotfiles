@@ -1,0 +1,17 @@
+[user]
+	name = Lucas Silva Simões
+	email = simoes.lucas.silva@gmail.com
+[credential]
+	helper = cache --timeout=7200
+[appply]
+	whitespace = nowarn
+[github]
+	user = kaslusimoes
+[color]
+	ui = true
+[core]
+	editor = nano -w
+[push]
+	default = simple
+[branch "master"]
+	rebase = true

@@ -1,0 +1,302 @@
+##
+##  My i3 config file (v4)
+##
+
+###############################################################
+##
+##  SETTINGS & DEFAULTS
+##
+###############################################################
+
+set $mod Mod4
+set $WS1 "1: term"
+set $WS2 "2: web"
+set $WS3 "3: code"
+set $WS4 "4: media"
+set $WS5 "5: misc"
+set $WS6 "6: off"
+
+new_window normal 5 px 
+#pixel 2
+new_float  pixel 2
+
+floating_modifier $mod
+focus_follows_mouse no
+workspace_auto_back_and_forth no
+
+floating_minimum_size 30 x 30
+floating_maximum_size 1300 x 750
+
+
+###############################################################
+##
+##  COLORING
+##
+###############################################################
+
+#class                  border   backgr.  text
+client.focused          #007fbf #007fbf #ffffff
+#client.focused_inactive
+client.unfocused        #666666 #666666 #ffffff
+client.urgent           #aa0000 #990000 #ffffff
+#client.placeholder
+
+
+###############################################################
+##
+##  META BINDS
+##
+###############################################################
+
+# reload/restart/exit
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# screen locker (first move to "safe" workspace without any chat app)
+bindsym Control+Mod1+l exec i3-msg workspace "0: LOCKER" && i3lock -c 111111 -d
+
+
+###############################################################
+##
+##  WINDOWS BINDS
+##
+###############################################################
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# window manipulation
+bindsym $mod+u [urgent=latest] focus
+bindsym $mod+f fullscreen
+bindsym $mod+c move absolute position center
+bindsym $mod+Shift+Q kill
+
+# windows split container
+bindsym $mod+h split horizontal
+bindsym $mod+v split vertical
+
+## focus the parent/child container
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+bindsym $mod+Tab workspace back_and_forth
+bindsyn $mod+Shift_Tab move container to workspace back_and_forth
+
+# border changing
+bindsym $mod+b border toggle
+bindsyn $mod+Shift+B border pixel 3
+# does it work?
+
+
+###############################################################
+##
+##  APPLICATIONS BINDS
+##
+###############################################################
+
+# scratchpad (to remove it just toggle back to tiling!)
+bindsym $mod+m move scratchpad, border pixel 3
+bindsym $mod+o scratchpad show
+
+# start a terminal (i3-sensible-terminal/xterm/..)
+bindsym $mod+Return exec urxvt +sb
+
+# start j4-dmenu (a program launcher)
+bindsym $mod+d exec j4-dmenu-desktop
+
+# Need to find a better bind here...
+bindsym $mod+t exec firefox
+
+# default applications
+## use "xprop" on the windows to know more
+
+assign [class="^Firefox$"]                          → $WS2
+assign [class="^URxvt$" instance="ncmpcpp"]         → $WS4
+assign [class="^URxvt$"]                            → $WS1
+assign [class="^Pantheon-files$"]                   → $WS5
+assign [class="^Subl3$"]                            → $WS3
+assign [class="^Popcorn-Time$"]                     → $WS6
+
+for_window [class="^URxvt$" instance="^scratch$"] border pixel 2, move scratchpad
+for_window [class="^Popcorn-Time$"] fullscreen
+for_window [class="Uzbl-core"] focus child, layout tabbed, focus
+
+for_window [window_role="pop-up"] border 1pxel, floating enable, move absolute center
+for_window [window_role="Preferences"] border 1pixel, floating enable, move absoulute center
+for_window [window_role="^Organizer$"] border 1pixel, floating enable
+for_window [title="pdf$"] border pixel 2, floating enable
+
+###############################################################
+##
+##  SPECIAL KEYS BINDS
+##
+###############################################################
+
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-2%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 -- '+2%'
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 -- toggle
+bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+
+###############################################################
+##
+##  MODES CONFIGURATION  
+##
+###############################################################
+
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym i resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "startapp" {
+    bindsym f exec firefox; exec i3-msg  mode default
+    bindsym m exec urxvt +sb -name ncmpcpp -e ncmpcpp; exec i3-msg mode default
+    bindsym s exec subl3; exec i3-msg mode default
+    bindsym t exec transmission-gtk --minimized; exec i3-msg mode default
+    bindsym a exec pantheon-files; exec i3-msg mode default
+    bindsyn p exec Popcorn-Time; exec i3-msg mode default
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "goto" {
+    bindsym f [class="^Firefox$"] focus; exec i3-msg mode default
+    bindsym m [name="ncmpcpp"] focus; exec i3-msg mode default
+    bindsym s [class="^Subl3$"] focus; exec i3-msg mode default
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+bindsym $mod+x mode "startapp"
+bindsym $mod+g mode "goto"
+
+
+###############################################################
+##
+##  AUTOSTART
+##
+###############################################################
+
+exec pactl set-sink-volume 0 '40%'
+exec xbacklight = 40
+exec feh --bg-scale /home/kaslu/Images/Wallpapers/Wallpapers\ Gaming/triforce.jpg
+#feh --recursive --randomize --bg-scale /home/kaslu/Wallpapers/* &
+#nitrogen --set-scaled Images/Wallpapers/Wallpapers\ Gaming/triforce.jpg &
+exec mpd
+exec nm-applet
+exec dropboxd
+exec transmission-gtk --minimized
+exec xcompmgr
+exec urxvt +sb -name scratch
+
+# start i3bar to display a workspace bar
+bar {
+    position top
+    workspace_buttons yes
+    status_command i3blocks -c .config/i3/i3blocks.conf
+    #i3status -c ~/.config/i3/i3status.conf
+    #mode hide
+    #modifier $mod
+    
+    font pango:Droid Sans 8
+
+    colors {
+        # Whole color settings
+        background #000000
+        statusline #ffffff
+        separator  #666666
+        
+        # Type             border  background font
+        focused_workspace  #008fff #007fff #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888 
+        urgent_workspace   #aa0000 #990000 #ffffff
+    }
+}
+
+# active_workspace means visible on some output but not focused
+# urgent_workspace also applies to mode indicators
+
+
+###############################################################
+##
+##  FOCUS BINDS
+##
+###############################################################
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# change focus
+# alternatively, you can use the cursor keys:
+bindsym $mod+j focus left
+bindsym $mod+Left focus left
+bindsym $mod+k focus down
+bindsym $mod+Down focus down
+bindsym $mod+i focus up
+bindsym $mod+Up focus up
+bindsym $mod+l focus right
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+I move up
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+L move right
+bindsym $mod+Shift+Right move right
+
+# handy bindings
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left

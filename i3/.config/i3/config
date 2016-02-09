@@ -1,0 +1,314 @@
+##
+##  My i3 config file (by kaslusimoes)
+##   ----------------------
+##
+
+###*********************###
+##  SETTINGS & DEFAULTS  ##
+###*********************###
+
+set $mod Mod4
+set $alt Mod1
+set $wall "/home/kaslu/Images/Wallpapers/nomansky_Creature.png"
+
+set $WS1 "1: "
+set $WS2 "2: "
+set $WS3 "3: "
+set $WS4 "4: "
+set $WS5 "5: "
+set $WS6 "6: "
+set $WS7 "7"
+set $WS8 "8"
+set $WS9 "9"
+set $WS0 "10"
+
+set $up     j
+set $down   k
+set $left   h
+set $right  l
+
+floating_modifier              $mod
+focus_follows_mouse            no
+workspace_auto_back_and_forth  no
+popup_during_fullscreen        smart
+
+# all windows mustn't have titles so that i3-gaps works
+for_window [class="^.*"] border pixel 3
+
+#new_window pixel 3 
+#new_float  pixel 2
+
+gaps inner 7
+gaps outer 0
+
+floating_minimum_size   30 x 30
+floating_maximum_size 1300 x 750
+
+###*********************###
+##       THEMING         ##
+###*********************###
+
+font pango:DejaVu Sans Mono 8, Icons 8
+#font xft:Droid Sans Bold 0
+#font pango: Meslo LG M 8, Awesome 8
+
+set $black #000000
+set $white #ffffff
+set $grayl #333333
+set $grayd #222222
+
+# Color Palette: http://paletton.com/#uid=55k0u0kiFpq8tERd-uumWkWsofz
+set $mainl  #af4970
+set $maind  #6b0c31
+set $adjext #cb6d54
+set $adjint #7a3985
+set $urgent #65972b
+
+# http://palettegenerator.com/ using $wall
+#set $mainl  #b26459
+#set $maind  #dc9a5d
+#set $adjext #e9b58f
+#set $adjint #833c42
+#set $urgent #e3ae94
+
+## Class                border, background, text, indicator
+client.focused          $maind  $mainl  $white
+client.unfocused        $adjext $adjext $white
+client.urgent           $urgent $urgent $white
+client.background       $adjint $adjint $white
+#client.focused_inactive
+#client.placeholder
+
+# start i3bar to display a workspace bar
+bar {
+    position top
+    height   25
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    #status_command i3status -c ~/.config/i3/i3status.conf
+
+    colors {
+        # Whole color settings
+        background $black
+        statusline $white
+        separator  $adjint
+
+        ## Class           border  background font
+        focused_workspace  $mainl  $maind  $white
+        active_workspace   $grayl  $adjint $white
+        inactive_workspace $grayl  $grayd  $white
+        urgent_workspace   $urgent $urgent $white
+    }
+}
+
+# active_workspace means visible on some output but not focused
+# urgent_workspace also applies to mode indicators
+
+###*********************###
+##      META BINDS       ##
+###*********************###
+
+# reload/restart/exit
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the EXIT shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Control+Shift+X exec "i3-nagbar -t warning -m 'You pressed the SHUTDOWN shortcut. Do you really want to shutdown?' -b 'Yes, shutdown' 'systemctl poweroff'"
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+p layout toggle split
+
+# screen locker (first move to "safe" workspace without any chat app)
+#bindsym Control+$alt+l exec i3-msg workspace "0: LOCKER" && i3lock -c 111111 -d
+
+###*********************###
+##     WINDOWS BINDS     ##
+###*********************###
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# window manipulation
+bindsym $mod+u [urgent=latest] focus
+bindsym $mod+f fullscreen
+bindsym $mod+g move absolute position center
+bindsym $mod+Shift+Q kill
+
+# windows split container
+bindsym $mod+c split horizontal
+bindsym $mod+v split vertical
+
+## focus the parent/child container
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+bindsym $mod+Tab workspace back_and_forth
+bindsyn $mod+Shift_Tab move container to workspace back_and_forth
+
+###*********************###
+##  APPLICATIONS BINDS   ##
+###*********************###
+
+# scratchpad (to remove it just toggle back to tiling!)
+bindsym $mod+m move scratchpad, border pixel 3
+bindsym $mod+o scratchpad show
+
+# start a terminal (i3-sensible-terminal/xterm/..)
+#bindsym $mod+Return exec urxvt +sb
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+e exec emacsclient -nc
+
+# start j4-dmenu (a program launcher)
+bindsym $mod+d  exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -p '> ' -nb '#151515' -nf '#d5d5d5' -sb '#242424' -sf '#ffffff'"
+bindsym $alt+F2 exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu_run -i -p '> ' -nb '#151515' -nf '#d5d5d5' -sb '#242424' -sf '#ffffff'"
+
+# Need to find a better bind here...
+bindsym $mod+t exec firefox
+
+# default applications
+## use "xprop" on the windows to know more
+
+assign [class="^Firefox$"]                          → $WS2
+assign [class="^Emacs$"]                            → $WS1
+assign [class="^Popcorn-Time$"]                     → $WS4
+
+for_window [class="^URxvt$" instance="^scratch$"] border pixel 2, move scratchpad
+for_window [class="^Popcorn-Time$"] fullscreen
+
+for_window [window_role="pop-up"] border 1pxel, floating enable, move absolute center
+for_window [window_role="^Organizer$"] border 1pixel, floating enable, move absoulute center
+for_window [title="pdf$"] border pixel 2, floating enable
+for_window [window_role="scratch"] border pixel 2, move scratchpad
+
+###*********************###
+##    MOVEMENT BINDS     ##
+###*********************###
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
+
+# change focus
+# alternatively, you can use the cursor keys:
+bindsym $mod+$left focus left
+bindsym $mod+Left focus left
+bindsym $mod+$down focus down
+bindsym $mod+Down focus down
+bindsym $mod+$up focus up
+bindsym $mod+Up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Right move right
+
+# handy bindings
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
+
+###*********************###
+##  SPECIAL KEYS BINDS   ##
+###*********************###
+
+bindsym XF86AudioLowerVolume  exec /usr/bin/pamixer -d 5 && volnoti-show `pamixer --get-volume`
+bindsym XF86AudioRaiseVolume  exec /usr/bin/pamixer -i 5 && volnoti-show `pamixer --get-volume`
+bindsym XF86AudioMute         exec /usr/bin/pamixer --toggle && volnoti-show -m
+bindsym XF86MonBrightnessUp   exec /usr/bin/xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+bindsym Print                 exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Images/Screenshots/'
+
+###*********************###
+##         MODES         ##
+###*********************###
+
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym i resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "startapp" {
+    bindsym f exec firefox; exec i3-msg  mode default
+    bindsym m exec urxvt +sb -name ncmpcpp -e ncmpcpp; exec i3-msg mode default
+    bindsym t exec transmission-gtk --minimized; exec i3-msg mode default
+    bindsyn p exec Popcorn-Time; exec i3-msg mode default
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "goto" {
+    bindsym f [class="^Firefox$"] focus; exec i3-msg mode default
+    bindsym m [name="ncmpcpp"] focus; exec i3-msg mode default
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+X mode "startapp"
+bindsym $mod+Shift+G mode "goto"
+
+###*********************###
+##      AUTOSTART        ##
+###*********************###
+
+#exec pactl set-sink-volume 0 '40%'
+exec pamixer --set-volume 50
+exec xbacklight = 15
+exec feh --bg-scale $wall; sleep 2
+#feh --recursive --randomize --bg-scale /home/kaslu/Wallpapers/* &
+#nitrogen --set-scaled $wall &
+
+#exec mpd
+# exec nm-applet
+exec volnoti -n
+#exec dropbox-cli start
+#exec transmission-gtk --minimized
+
+#exec xcompmgr
+#exec urxvt +sb -name scratch
+exec gnome-terminal --role=scratch
+exec firefox

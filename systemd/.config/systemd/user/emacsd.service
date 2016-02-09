@@ -1,0 +1,13 @@
+[Unit]
+Description=Emacs: the extensible, self-documenting text editor
+Documentation=man:emacs(1) info:Emacs
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/emacs --daemon
+ExecStop=/usr/bin/emacsclient --eval "(progn (setq kill-emacs-hook nil) (kill-emacs))"
+Restart=on-failure
+TimeoutStartSec=0 #Pass "0" to disable the timeout logic
+
+[Install]
+WantedBy=default.target

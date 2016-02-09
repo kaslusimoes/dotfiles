@@ -1,0 +1,45 @@
+directory:  ~/Music/Beets
+library:    ~/Music/Beets/musiclibrary.blb
+
+plugins:    fromfilename fetchart embedart lyrics #mpdstats lastgenre
+pluginpath: ~/Music/Beets/BeetsPlugins
+
+threaded:   yes
+ui:
+    color:  yes
+
+import:
+    move:   no
+    resume: ask
+    log:    ~/Music/Beets/beets.log
+    
+paths:
+    default:    $albumartist/$year - $album/$track $title
+    singletons: Singles/$artist - $title
+    #comp:       Compilations/$album/$track $title
+
+fetchart:
+    google_search:  true
+    cautious:       yes
+    cover_names:    front cover
+    maxwidth:       500
+    
+embedart:
+    auto:       yes
+    maxwidth:   500
+    
+mpd:
+    host:   localhost
+    port:   6600
+    
+mpdstats:
+    # apenas se estiver em pastas diferentes
+    music_directory:    ~/Music
+    
+# Biel
+id3v23:     yes
+
+musicbrainz:
+    user: kaslusimoes
+    pass: I^$Q7GzfTOnV
+    auto: yes
