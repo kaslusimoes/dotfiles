@@ -1,0 +1,24 @@
+## Here is an example for Julia.
+##
+syntax "julia" "\.jl$"
+
+#header "^#!.*/julia[-0-9._]*"
+
+icolor brightblue "def [0-9A-Z_]+"
+
+color green "\<(Base|Core|Main|PCRE|FFTW|Collections|DSP|LinAlg|LibRandom|Random|Math|MPFR|GMP|Sort|Test|Pkg|Operators|Errno|Meta|Graphics|Common|Naturals|ParseArgs|Testing|Cluster|Proteins|Scoring|Lists|BinaryTrees|Trees|Twines)\>"
+
+color blue "\<(begin|do|for|in|function|if|immutable|let|quote|try|type|while|catch|finally|else|elseif|end|abstract|bitstype|break|ccall|const|continue|export|global|import|importall|local|macro|module|baremodule|return|typealias|using)\>"
+
+color green "\<(is|typeof|subtype|isa|typeassert|apply|kwcall|throw|tuple|Union|method_exists|applicable|invoke|parse|eval|isdefined|yieldto|include|require|exit|(show)?error|show|print(ln|lg)?|bool|int|nat|float|string|length|size|map|iterate|filter|fold(l|r)|reduce|tumble|sift|(bin_|r)?search|sort|zip|collect|abs|(min|max)(imum)?|any|all|sum|prod|convert|try_conv|type(min|max)|read_(from|lines)|(write|append)_to|(move|copy|delete)_(file|dir)s?|split(ie|ow|oc|osc|ol|oqw)?|join(o(s|c|sc|l))?)\>"
+
+color magenta "\<(Any|None|Nothing|Void|Type(Constructor|Name|Var|_Array)?|(Union|Data|NonTuple)Type|(Abstract|Strided|Bit)?(Array|Matrix|Vector)|Abstract(Cmd|RNG|SparseMatrix)|(Abstract|Strided)?VecOrMat|SparseMatrixCSC|(D|Sub((Or)?D)?)Array|Chars?|(ASCII|Byte|Char|DirectIndex|Generic|Rep|Rev|Rope|Sub|UTF8)?String|Bool|Number|Real|Rational|ImaginaryUnit|Signed|Unsigned|Int(eger|Set|8|16|32|64|128)?|U[I|i]nt(8|16|32|64|128)?|Float(ingPoint|16|32|64)?|Complex(Pair|64|128)?|Big(Int|Float)|C(float|double|ptrdiff_t|u?(int|long(long)?|char|short)|s?size_t|wchar_t)|(Argument|Bounds|Divide|Domain|EOF|Inexact|Key|Load|Memory|Method|Parse|(Stack)?Overflow|System|Type|UV|UndefRef)Error|(Error|Interrupt|Disconnect)?Exception|Algorithm|Associative|AsyncStream|Box|BunchKaufman|CPUinfo|CallStack|Callback|Cholesky|CholeskyPivoted|Cmd(Redirect)?|(And|Or)Cmds|Colon|LU|(((Sym|LDLT|LU)?Tr|B)id|D)iagonal|Dict|EachLine|Eigen|EmptyCallStack|Enumerate|EnvHash|Executable|Expr(Node)?|Factorization|FDWatcher|(Abstract)?File|File(Monitor|Offset)|Filter|(Intrinsic)?Function|Hermitian|Hessenberg|IO(Buffer|Stream)?|InetAddr|IpAddr|IPv[46]|(Key|Value)Iterator|LambdaStaticData|LocalProcess|Long(Expr|Symbol|Tuple)|MersenneTwister|Method(Table)?|MmapArrayInfo|Module|NTuple|NamedPipe|(Getfield|Goto|Label|LineNumber|Quote)Node|NotFound|OS_FD|ObjectIdDict|PollingFileWatcher|Process(Chain(OrNot)?|Group)?|Ptr|QR(Pivoted)?|(Unit|Float|Step|Ordinal|Int)?Range(s|1|Index|VecIntList)?|RawOrBoxedHandle|Redirectable|Regex(Match(Iterator)?)?|RemoteRef|Rest|Reverse|(Generalized)?(SVD|Schur)|Set|Socket|(Merge|Insertion|Tim|Quick)Sort|SpawnNullStream|Stat|StateUpdate|StaticVarInfo|Symbol(Node)?|TTY|Task|TcpSocket|TmStruct|Top(Node)?|Triangular|UV(Handle|PollingWatcher|Stream)|UdpSocket|Undef(RefTag)?|VarTable|Vararg|VersionNumber|Wait(For|Task)|Weak(KeyDict|Ref)|Woodbury|(Timeout|Idle|Single)?AsyncWork|Work(er|Item)|Zip|Nat(ural|8|16|32|64)?|Arg|Required|(File|Dir)Type|(Failed)?Case|(A|E)?List|Binary(Tree|Leaf|Branch)|Twine)\>"
+
+color brightyellow "['][^']*[^\\][']" "[']{3}.*[^\\][']{3}"
+
+color yellow "["][^"]*[^\\]["]" "["]{3}.*[^\\]["]{3}"
+
+color yellow start=""""[^"]" end=""""" start="'''[^']" end="'''"
+
+color red "#.*$"
+
