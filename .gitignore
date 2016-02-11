@@ -1,0 +1,10 @@
+# remove emacs packages
+emacs/.emacs.d/*
+!/emacs/.emacs.d/init.el
+
+# remove systemd symlinks
+systemd/.config/systemd/user/default.target.wants/
+
+# remove media internal files
+media/.config/mpd/database
+media/.config/ncmpcpp/error.log
