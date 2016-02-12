@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd ~/dotfiles
-for folder in ~/dotfiles/*; do
+for folder in $PWD/*; do
     if [ -f $folder ]; then
         echo "$folder is a file, skipping."
     else

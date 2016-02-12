@@ -9,6 +9,8 @@ fi
 export XDG_CONFIG_HOME=/home/kaslu/.config
 export GNUPGHOME="/home/kaslu/.config/gnupg"
 export EDITOR=nano
+export VISUAL="emacsclient -n"
+export GDK_BACKEND='wayland,x11'
 
 # learn more about this.. `vainfo` and `grep -i vdpau /var/log/Xorg.0.log`
 # both get me some i965 driver I don't know about..
