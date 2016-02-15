@@ -7,3 +7,5 @@ icolor white ""(\\.|[^"])*""
 ## Comments
 icolor brightblue "^[[:space:]]*#.*$"
 icolor cyan "^[[:space:]]*##.*$"
+icolor cyan "(^|[[:space:]]);.*"
+
