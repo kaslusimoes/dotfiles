@@ -6,5 +6,13 @@ emacs/.emacs.d/*
 systemd/.config/systemd/user/default.target.wants/
 
 # remove media internal files
+media/.config/mpd/log
+media/.config/mpd/pid
+media/.config/mpd/state
 media/.config/mpd/database
+media/.config/beets/state.pickle
 media/.config/ncmpcpp/error.log
+
+# remo transmission internal files
+minors/.config/transmission/resume
+minors/.config/transmission/torrents

@@ -175,6 +175,16 @@
         (python . t))
  )
 
+;; adding LaTex compilation functionality
+;; http://orgmode.org/worg/org-tutorials/org-latex-export.html
+(require 'ox-latex)
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+(add-to-list 'org-latex-classes
+    '("article"
+      "\\documentclass{article}"
+      ("\\section{%s}" . "\\section*{%s}")))
+
 ; add systemd highlights
 (add-to-list 'auto-mode-alist '("\\.service\\'" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer\\'" . conf-unix-mode))

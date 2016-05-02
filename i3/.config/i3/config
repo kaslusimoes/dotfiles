@@ -172,7 +172,7 @@ bindsym $mod+t exec firefox
 ## use "xprop" on the windows to know more
 
 assign [class="^Firefox$"]                          → $WS2
-assign [class="^Emacs$"]                            → $WS1
+assign [class="^Emacs$"]                            → $WS3
 assign [class="^Popcorn-Time$"]                     → $WS4
 
 for_window [class="^URxvt$" instance="^scratch$"] border pixel 2, move scratchpad
