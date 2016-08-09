@@ -1,13 +1,16 @@
 [Unit]
 Description=Redshift display colour temperature adjustment (GUI)
 Documentation=http://jonls.dk/redshift/
-After=display-manager.service
-Requires=display-manager.service
+#After=display-manager.service
+#Requires=display-manager.service
 
 [Service]
 #Type=forking
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%I SHELL=%s
 ExecStart=/usr/bin/redshift-gtk
 Restart=always
+#TimeoutStartSec=4min
 
 [Install]
 WantedBy=default.target

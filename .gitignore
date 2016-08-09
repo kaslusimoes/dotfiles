@@ -13,6 +13,7 @@ media/.config/mpd/database
 media/.config/beets/state.pickle
 media/.config/ncmpcpp/error.log
 
-# remo transmission internal files
+# remove transmission internal files
 minors/.config/transmission/resume
 minors/.config/transmission/torrents
+minors/.config/transmission/dht.dat

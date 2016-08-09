@@ -312,3 +312,6 @@ exec volnoti -n
 #exec urxvt +sb -name scratch
 exec gnome-terminal --role=scratch
 exec firefox
+exec emacs --daemon
+exec dropbox-cli start
+exec systemctl start --user redshift-gtk

@@ -25,7 +25,7 @@
     "inhibit-desktop-hibernation": true,
     "lpd-enabled": false,
     "main-window-height": 725,
-    "main-window-is-maximized": 0,
+    "main-window-is-maximized": 1,
     "main-window-width": 1348,
     "main-window-x": 6,
     "main-window-y": 31,
