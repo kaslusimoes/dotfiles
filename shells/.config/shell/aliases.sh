@@ -33,6 +33,7 @@ alias ggg='mutter --replace &'
 alias mysystem='phoronix-test-suite detailed-system-info'
 alias listdrive='lsblk -o NAME,SIZE,MOUNTPOINT,PARTUUID'
 alias emc='emacsclient -nw'
+alias bestjoin='pdfjoin --paper a4paper --rotateoversize false'
 
 # Internet  Aliases
 alias pinga='ping www.google.com'
