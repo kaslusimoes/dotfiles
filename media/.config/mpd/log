@@ -1,0 +1,23 @@
+Sep 23 14:11 : avahi: Initializing interface
+Sep 23 14:11 : avahi: Client changed to state 2
+Sep 23 14:11 : avahi: Client is RUNNING
+Sep 23 14:11 : avahi: Registering service _mpd._tcp/Music Player
+Sep 23 14:11 : avahi: Service group changed to state 0
+Sep 23 14:11 : avahi: Service group is UNCOMMITED
+Sep 23 14:11 : update: spawned thread for update job id 1
+Sep 23 14:11 : update: starting
+Sep 23 14:11 : state_file: Loading state file /home/lsimoes/.config/mpd/state
+Sep 23 14:11 : errno: Failed to stat /home/lsimoes/Music: No such file or directory
+Sep 23 14:11 : simple_db: removing empty directories from DB
+Sep 23 14:11 : simple_db: sorting DB
+Sep 23 14:11 : simple_db: writing DB
+Sep 23 14:11 : inotify: initializing inotify
+Sep 23 14:11 : errno: inotify_add_watch() has failed: No such file or directory
+Sep 23 14:11 : update: finished
+Sep 23 14:11 : avahi: Service group changed to state 1
+Sep 23 14:11 : avahi: Service group is REGISTERING
+Sep 23 14:11 : avahi: Service group changed to state 2
+Sep 23 14:11 : avahi: Service 'Music Player' successfully established.
+Sep 23 14:11 : state_file: Saving state file /home/lsimoes/.config/mpd/state
+Sep 23 14:11 : avahi: Shutting down interface
+Sep 23 14:11 : listen: listen_global_finish called

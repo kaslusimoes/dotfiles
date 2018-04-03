@@ -6,10 +6,10 @@ if [[ $SHELL = '/bin/bash' ]]; then
     export PS1='\[\e[1;36m\]\u@\h:\[\e[0;33m\] \W\[\e[1;36m\] \$ \[\e[0m\]' # Cyan Prompt 36 # Green is 32
 fi
 
-export XDG_CONFIG_HOME=/home/kaslu/.config
-export GNUPGHOME="/home/kaslu/.config/gnupg"
+export XDG_CONFIG_HOME=/home/lsimoes/.config
+export GNUPGHOME="/home/lsimoes/.config/gnupg"
 export EDITOR=nano
-export VISUAL="emacsclient -n"
+#export VISUAL="emacsclient -n"
 export GDK_BACKEND='wayland,x11'
 
 # learn more about this.. `vainfo` and `grep -i vdpau /var/log/Xorg.0.log`

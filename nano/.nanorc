@@ -232,91 +232,91 @@
 # bind kdel backspace all
 
 ## Nanorc files
- include "/home/kaslu/.config/nano/nanorc.nanorc"
+ include "/home/lsimoes/.config/nano/nanorc.nanorc"
 
 ## C/C++
- include "/home/kaslu/.config/nano/c.nanorc"
+ include "/home/lsimoes/.config/nano/c.nanorc"
 
 ## Makefiles
-# include "/home/kaslu/.config/nano/makefile.nanorc"
+# include "/home/lsimoes/.config/nano/makefile.nanorc"
 
 ## Cascading Style Sheets
-# include "/home/kaslu/.config/nano/css.nanorc"
+# include "/home/lsimoes/.config/nano/css.nanorc"
 
 ## Debian files
- include "/home/kaslu/.config/nano/debian.nanorc"
+ include "/home/lsimoes/.config/nano/debian.nanorc"
 
 ## Gentoo files
-# include "/home/kaslu/.config/nano/gentoo.nanorc"
+# include "/home/lsimoes/.config/nano/gentoo.nanorc"
 
 ## HTML
-# include "/home/kaslu/.config/nano/html.nanorc"
+# include "/home/lsimoes/.config/nano/html.nanorc"
 
 ## PHP
-# include "/home/kaslu/.config/nano/php.nanorc"
+# include "/home/lsimoes/.config/nano/php.nanorc"
 
 ## TCL
-# include "/home/kaslu/.config/nano/tcl.nanorc"
+# include "/home/lsimoes/.config/nano/tcl.nanorc"
 
 ## TeX
- include "/home/kaslu/.config/nano/tex.nanorc"
+ include "/home/lsimoes/.config/nano/tex.nanorc"
 
 ## Quoted emails (under e.g. mutt)
-# include "/home/kaslu/.config/nano/mutt.nanorc"
+# include "/home/lsimoes/.config/nano/mutt.nanorc"
 
 ## Patch files
-# include "/home/kaslu/.config/nano/patch.nanorc"
+# include "/home/lsimoes/.config/nano/patch.nanorc"
 
 ## Manpages
- include "/home/kaslu/.config/nano/man.nanorc"
+ include "/home/lsimoes/.config/nano/man.nanorc"
 
 ## Groff
-# include "/home/kaslu/.config/nano/groff.nanorc"
+# include "/home/lsimoes/.config/nano/groff.nanorc"
 
 ## Perl
-# include "/home/kaslu/.config/nano/perl.nanorc"
+# include "/home/lsimoes/.config/nano/perl.nanorc"
 
 ## Python
- include "/home/kaslu/.config/nano/python.nanorc"
+ include "/home/lsimoes/.config/nano/python.nanorc"
 
 ## Ruby
-# include "/home/kaslu/.config/nano/ruby.nanorc"
+# include "/home/lsimoes/.config/nano/ruby.nanorc"
 
 ## Java
-# include "/home/kaslu/.config/nano/java.nanorc"
+# include "/home/lsimoes/.config/nano/java.nanorc"
 
 ## Fortran
-# include "/home/kaslu/.config/nano/fortran.nanorc"
+# include "/home/lsimoes/.config/nano/fortran.nanorc"
 
 ## Objective-C
-# include "/home/kaslu/.config/nano/objc.nanorc"
+# include "/home/lsimoes/.config/nano/objc.nanorc"
 
 ## OCaml
-# include "/home/kaslu/.config/nano/ocaml.nanorc"
+# include "/home/lsimoes/.config/nano/ocaml.nanorc"
 
 ## AWK
-# include "/home/kaslu/.config/nano/awk.nanorc"
+# include "/home/lsimoes/.config/nano/awk.nanorc"
 
 ## Assembler
-# include "/home/kaslu/.config/nano/asm.nanorc"
+# include "/home/lsimoes/.config/nano/asm.nanorc"
 
 ## Bourne shell scripts
- include "/home/kaslu/.config/nano/sh.nanorc"
+ include "/home/lsimoes/.config/nano/sh.nanorc"
 
 ## POV-Ray
-# include "/home/kaslu/.config/nano/pov.nanorc"
+# include "/home/lsimoes/.config/nano/pov.nanorc"
 
 ## XML-type files
-# include "/home/kaslu/.config/nano/xml.nanorc"
+# include "/home/lsimoes/.config/nano/xml.nanorc"
 
 ## PKGBUILD files
- include "/home/kaslu/.config/nano/pkgbuild.nanorc"
+ include "/home/lsimoes/.config/nano/pkgbuild.nanorc"
  
 ## Conf files
- include "/home/kaslu/.config/nano/conf.nanorc"
+ include "/home/lsimoes/.config/nano/conf.nanorc"
 
 ## Lua files
- include "/home/kaslu/.config/nano/lua.nanorc"
+ include "/home/lsimoes/.config/nano/lua.nanorc"
 
 ## Julia Files
- include "/home/kaslu/.config/nano/julia.nanorc"
+ include "/home/lsimoes/.config/nano/julia.nanorc"

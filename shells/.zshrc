@@ -13,7 +13,7 @@ SAVEHIST=50000
 [[ -f ~/.config/shell/options.zsh ]] && source ~/.config/shell/options.zsh
 [[ -f ~/.config/shell/keybinds.zsh ]] && source ~/.config/shell/keybinds.zsh
 
-zstyle :compinstall filename '/home/kaslu/.zshrc'
+zstyle :compinstall filename '/home/lsimoes/.zshrc'
 
 autoload -Uz compinit colors
 compinit; colors
