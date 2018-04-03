@@ -1,0 +1,4 @@
+// These settings override both User and Default settings for the Julia syntax
+{
+    "color_scheme": "Packages/Pandoc Academic/ColorScheme/afterglow-markdown-adapted.tmTheme",
+}
