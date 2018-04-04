@@ -1,4 +1,9 @@
 // These settings override both User and Default settings for the pandoc syntax
 {
-    // "color_scheme": "Packages/Pandoc Academic/ColorScheme/afterglow-markdown-adapted.tmTheme"
+    "extensions":
+    [
+        "md"
+    ],
+                
+    "color_scheme": "Packages/Pandoc Academic/ColorScheme/The-Wine-Dark-Sea.tmTheme"
 }

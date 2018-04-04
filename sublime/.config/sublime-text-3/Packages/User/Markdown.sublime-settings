@@ -1,8 +1,8 @@
 {
 	"extensions":
 	[
-		"md"
+		"mmd"
 	],
-    // "color_scheme": "Packages/Pandoc Academic/ColorScheme/afterglow-markdown-adapted.tmTheme"
+    "color_scheme": "Packages/Pandoc Academic/ColorScheme/afterglow-markdown-adapted.tmTheme"
 
 }
