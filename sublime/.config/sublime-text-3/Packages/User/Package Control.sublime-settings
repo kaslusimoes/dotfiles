@@ -14,6 +14,8 @@
 		"orgmode",
 		"Package Control",
 		"Pandoc Academic",
+		"SublimeLinter",
+		"SublimeLinter-contrib-proselint",
 		"UnicodeCompletion",
 		"WordCount"
 	],
