@@ -33,3 +33,6 @@ RPROMPT="%B%F{magenta}%n@%m%f%b"
 [[ -f ~/.config/shell/aliases.sh ]] && source ~/.config/shell/aliases.sh
 [[ -f ~/.config/shell/functions.sh ]] && source ~/.config/shell/functions.sh
 [[ -f ~/.config/shell/exports.sh ]] && source ~/.config/shell/exports.sh
+
+# AUR - z : https://github.com/rupa/z/ - jump around
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

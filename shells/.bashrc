@@ -25,5 +25,8 @@
 
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 
+# AUR - z : https://github.com/rupa/z/ - jump around
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
 # Don't know if it should come here. At least colors tree output
 eval $(dircolors -b)
