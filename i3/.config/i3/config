@@ -9,17 +9,17 @@
 
 set $mod Mod4
 set $alt Mod1
-set $wall "/home/kaslu/Images/Wallpapers/nomansky_Creature.png"
+set $wall "/home/kaslu/Images/Walls/nomansky_Creature.png"
 
-set $WS1 "1: "
-set $WS2 "2: "
-set $WS3 "3: "
-set $WS4 "4: "
-set $WS5 "5: "
-set $WS6 "6: "
-set $WS7 "7"
-set $WS8 "8"
-set $WS9 "9"
+set $WS1 "1:"
+set $WS2 "2:"
+set $WS3 "3:"
+set $WS4 "4:"
+set $WS5 "5:"
+set $WS6 "6:"
+set $WS7 "7:"
+set $WS8 "8:"
+set $WS9 "9:"
 set $WS0 "10"
 
 set $up     j
@@ -33,13 +33,13 @@ workspace_auto_back_and_forth  no
 popup_during_fullscreen        smart
 
 # all windows mustn't have titles so that i3-gaps works
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 
 #new_window pixel 3 
 #new_float  pixel 2
 
-gaps inner 7
-gaps outer 0
+#gaps inner 5
+#gaps outer 0
 
 floating_minimum_size   30 x 30
 floating_maximum_size 1300 x 750
@@ -82,7 +82,7 @@ client.background       $adjint $adjint $white
 # start i3bar to display a workspace bar
 bar {
     position top
-    height   25
+    #height   25
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status -c ~/.config/i3/i3status.conf
 
@@ -119,7 +119,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+p layout toggle split
 
 # screen locker (first move to "safe" workspace without any chat app)
-#bindsym Control+$alt+l exec i3-msg workspace "0: LOCKER" && i3lock -c 111111 -d
+#bindsym $mod+Shift+l exec i3-msg workspace "0: LOCKER" && i3lock -c 111111 -d
 
 ###*********************###
 ##     WINDOWS BINDS     ##
@@ -311,7 +311,7 @@ exec volnoti -n
 #exec xcompmgr
 #exec urxvt +sb -name scratch
 exec gnome-terminal --role=scratch
-exec firefox
-exec emacs --daemon
+#exec firefox
+#exec emacs --daemon
 exec dropbox-cli start
 exec systemctl start --user redshift-gtk
