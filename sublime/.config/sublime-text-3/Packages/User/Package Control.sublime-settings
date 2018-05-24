@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Citer",
+		"Git",
+		"Google Spell Check",
+		"Julia",
+		"JuliaCompletions",
+		"MarkdownHighlighting",
+		"orgmode",
+		"Package Control",
+		"Pandoc Academic",
+		"SublimeLinter",
+		"SublimeLinter-contrib-proselint",
+		"UnicodeCompletion",
+		"WordCount"
+	],
+	"update_check": false
+}
