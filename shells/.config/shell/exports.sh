@@ -12,12 +12,12 @@ export EDITOR=nano
 export VISUAL="emacsclient -n"
 export GDK_BACKEND='wayland,x11'
 
-# optimizations relevant to 
-if [[ $USER = 'lsimoes' ]]; then
-    export JULIA_NUM_THREADS=10
-else
-    export JULIA_NUM_THREADS=3
-fi
+# optimizations relevant to julia
+export JULIA_NUM_THREADS=3
+
+# node.js package manager
+export npm_config_prefix=/home/kaslu/.node_modules
+export PATH=$PATH:/home/kaslu/.node_modules/bin
 
 # learn more about this.. `vainfo` and `grep -i vdpau /var/log/Xorg.0.log`
 # both get me some i965 driver I don't know about..
