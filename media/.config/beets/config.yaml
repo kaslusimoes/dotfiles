@@ -38,8 +38,3 @@ mpdstats:
     
 # Biel
 id3v23:     yes
-
-musicbrainz:
-    user: kaslusimoes
-    pass: I^$Q7GzfTOnV
-    auto: yes

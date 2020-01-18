@@ -3,7 +3,7 @@
 #
 
 # My BASHRC
-# by kaslusimoes
+# by lucassimoes
 
 # Loaded as soon a Terminal Emulator is run
 # (that is, when on a Interactive Shell, not a Login Shell)

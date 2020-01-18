@@ -6,7 +6,7 @@
 [appply]
 	whitespace = nowarn
 [github]
-	user = kaslusimoes
+	user = lssimoes
 [color]
 	ui = true
 [core]

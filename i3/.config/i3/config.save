@@ -207,8 +207,8 @@ bindsym $mod+g mode "goto"
 
 exec pactl set-sink-volume 0 '40%'
 exec xbacklight = 40
-exec feh --bg-scale /home/kaslu/Images/Wallpapers/Wallpapers\ Gaming/triforce.jpg
-#feh --recursive --randomize --bg-scale /home/kaslu/Wallpapers/* &
+exec feh --bg-scale /home/lucas/Images/Wallpapers/Wallpapers\ Gaming/triforce.jpg
+#feh --recursive --randomize --bg-scale /home/lucas/Wallpapers/* &
 #nitrogen --set-scaled Images/Wallpapers/Wallpapers\ Gaming/triforce.jpg &
 exec mpd
 exec nm-applet

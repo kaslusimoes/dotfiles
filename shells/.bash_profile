@@ -3,7 +3,7 @@
 #
 
 # My BASH Profile
-# by kaslusimoes
+# by lucassimoes
 
 # Loaded as soon as logged into tty or logged through SSH
 # ( as soon as `login'  execs `bash')

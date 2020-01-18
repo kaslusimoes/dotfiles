@@ -3,7 +3,7 @@
 #
 
 # My ZSH Profile
-# by kaslusimoes
+# by lucassimoes
 
 # As user logs into tty1, exec Graphical Session
 # [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec gnome-session --session=gnome-wayland

@@ -1,5 +1,5 @@
 ##
-##  My i3 config file (by kaslusimoes)
+##  My i3 config file (by lucassimoes)
 ##   ----------------------
 ##
 
@@ -9,7 +9,7 @@
 
 set $mod Mod4
 set $alt Mod1
-set $wall "/home/kaslu/Images/Walls/nomansky_Creature.png"
+set $wall "/home/lucas/Images/Walls/nomansky_Creature.png"
 
 set $WS1 "1:"
 set $WS2 "2:"
@@ -299,7 +299,7 @@ bindsym $mod+Shift+G mode "goto"
 exec pamixer --set-volume 50
 exec xbacklight = 15
 exec feh --bg-scale $wall; sleep 2
-#feh --recursive --randomize --bg-scale /home/kaslu/Wallpapers/* &
+#feh --recursive --randomize --bg-scale /home/lucas/Wallpapers/* &
 #nitrogen --set-scaled $wall &
 
 #exec mpd

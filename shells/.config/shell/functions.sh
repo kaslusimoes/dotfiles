@@ -17,9 +17,9 @@ getlanip(){
 
 setperms(){
  echo "Marcando todos os arquivos:   644.."
- find /home/kaslu/{Programming,Dropbox,Pessoal} -type f -exec chmod 644 {} \;
+ find /home/lucas/{Programming,Dropbox,Pessoal} -type f -exec chmod 644 {} \;
  echo "Marcando todos os diretórios: 755.."
- find /home/kaslu/{Programming,Dropbox,Pessoal} -type d -exec chmod 755 {} \;
+ find /home/lucas/{Programming,Dropbox,Pessoal} -type d -exec chmod 755 {} \;
 }
 
 updategit(){
